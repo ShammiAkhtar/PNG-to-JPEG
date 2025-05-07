@@ -1,0 +1,77 @@
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'c844e89248036cd895068e1f8ad83d4d',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/c844e89248036cd895068e1f8ad83d4d/invoke.js"></script>
+
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7dy528ucr1dw7Q4LFVKES87FpaZ4lEHggAo6XbUEfBI55s8mQ2aiM8kDQKWjC-hyFZ9BnvXppXnShc2Aks65ky-XmhIfDARVIwwtawIhTx-TXcse6KeZh1GhpjPqQcIg5Tph4iEZ3B530qv82zLmeim5SiaF6Zq8JnB6Bb2BgyDxGpFCBW3lNapV1oIc/s1200/convert-a-jpeg-image-of-a-butterfly-to-png-fortmat.jpg" style="display: block; padding: 1em 0px; text-align: center;"><img alt="" border="0" data-original-height="800" data-original-width="1200" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7dy528ucr1dw7Q4LFVKES87FpaZ4lEHggAo6XbUEfBI55s8mQ2aiM8kDQKWjC-hyFZ9BnvXppXnShc2Aks65ky-XmhIfDARVIwwtawIhTx-TXcse6KeZh1GhpjPqQcIg5Tph4iEZ3B530qv82zLmeim5SiaF6Zq8JnB6Bb2BgyDxGpFCBW3lNapV1oIc/s320/convert-a-jpeg-image-of-a-butterfly-to-png-fortmat.jpg" width="320" /></a></div><div id="pngToJpegTool" style="background: rgb(255, 255, 255); border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px; font-family: sans-serif; margin: 20px auto; max-width: 500px; padding: 20px; text-align: center;">
+  <h2 style="color: #0f172a; margin-bottom: 15px;">PNG to JPEG Converter</h2>
+
+  <input accept="image/png" id="pngInput" style="border-radius: 6px; border: 1px solid rgb(204, 204, 204); margin-bottom: 15px; padding: 10px; width: 100%;" type="file" />
+
+  <button id="convertBtn" style="background: rgb(16, 185, 129); border-radius: 6px; border: none; color: white; cursor: pointer; font-weight: bold; margin-bottom: 15px; padding: 12px 20px;">Convert to JPEG</button>
+
+  <canvas id="canvas" style="display: none;"></canvas>
+
+  <div id="preview" style="margin-top: 20px;"></div>
+
+  <a download="converted.jpeg" href="#" id="downloadBtn" style="background: rgb(14, 165, 233); border-radius: 6px; color: white; display: none; font-weight: bold; margin-top: 20px; padding: 12px 20px; text-decoration: none;">
+    Download JPEG
+  </a>
+</div>
+
+<script>
+  let imageData = null;
+
+  document.getElementById("convertBtn").addEventListener("click", function () {
+    const fileInput = document.getElementById("pngInput");
+    const file = fileInput.files[0];
+
+    if (!file || file.type !== "image/png") {
+      alert("Please select a PNG image.");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const img = new Image();
+      img.onload = function () {
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        // Fill white background for JPEG
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+
+        const jpegData = canvas.toDataURL("image/jpeg", 1.0);
+        imageData = jpegData;
+
+        // Preview the result
+        document.getElementById("preview").innerHTML = '<img src="' + jpegData + '" style="max-width:100%;border-radius:6px;border:1px solid #ccc;" />';
+        const downloadBtn = document.getElementById("downloadBtn");
+        downloadBtn.href = jpegData;
+        downloadBtn.style.display = "inline-block";
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+</script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'c844e89248036cd895068e1f8ad83d4d',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/c844e89248036cd895068e1f8ad83d4d/invoke.js"></script>
